@@ -28,7 +28,6 @@ function App() {
               <Route path='/home' element={<Home />} />
               <Route path='/login' element={<>Login</>} />
               <Route path='/login/join' element={<>Join</>} />
-              <Route path='/login/join' element={<>Join</>} />
               <Route path='/404' element={<>Not Found</>} />
               <Route path='*' element={<Navigate to='/404' />} />
             </Routes>
