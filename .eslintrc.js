@@ -44,5 +44,6 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
