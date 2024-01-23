@@ -1,8 +1,13 @@
+import { useLocation } from 'react-router-dom';
 import styles from './GNB.module.scss';
 
 const { gnb } = styles;
 
 const GNB = () => {
+  const location = useLocation();
+
+  if (location.pathname.includes('login') || location.pathname.includes('404')) return null;
+
   return (
     <div className={gnb}>
       <div>Menu 1</div>
