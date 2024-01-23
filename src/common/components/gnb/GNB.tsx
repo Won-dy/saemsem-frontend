@@ -6,7 +6,7 @@ const { gnb } = styles;
 const GNB = () => {
   const location = useLocation();
 
-  if (location.pathname.includes('login') || location.pathname.includes('404')) return null;
+  if (location.pathname.includes('login') || location.pathname.includes('error')) return null;
 
   return (
     <div className={gnb}>

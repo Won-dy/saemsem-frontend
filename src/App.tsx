@@ -10,7 +10,7 @@ function App() {
   const [currentPath, setCurrentPath] = useState<string>(window.location.pathname);
   useEffect(() => {
     const newPath = window.location.pathname;
-    setUse100Width(newPath.includes('login') || newPath.includes('404'));
+    setUse100Width(newPath.includes('login') || newPath.includes('error'));
     if (newPath !== currentPath) {
       setCurrentPath(newPath);
     }
@@ -28,8 +28,8 @@ function App() {
               <Route path='/home' element={<Home />} />
               <Route path='/login' element={<>Login</>} />
               <Route path='/login/join' element={<>Join</>} />
-              <Route path='/404' element={<>Not Found</>} />
-              <Route path='*' element={<Navigate to='/404' />} />
+              <Route path='/error/404' element={<>Not Found</>} />
+              <Route path='*' element={<Navigate to='/error/404' />} />
             </Routes>
           </div>
         </div>
