@@ -1,0 +1,7 @@
+$main-header-height: 80px;
+
+@for $i from 1 to 999 {
+  .gap_#{$i} {
+    gap: $i * 1px !important;
+  }
+}

@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainHeader from './common/components/mainHeader/MainHeader';
 import GNB from './common/components/gnb/GNB';
 import Home from './pages/home/Home';
-import './App.css';
+import { MAIN_HEADER_HEIGHT } from './common/constant/Style';
 
 function App() {
-  const [use100Width, setUse100Width] = useState<boolean>(false);
+  const [isFullPage, setFullPage] = useState<boolean>(false);
   const [currentPath, setCurrentPath] = useState<string>(window.location.pathname);
   useEffect(() => {
     const newPath = window.location.pathname;
-    setUse100Width(newPath.includes('login') || newPath.includes('error'));
+    setFullPage(newPath.includes('login') || newPath.includes('error'));
     if (newPath !== currentPath) {
       setCurrentPath(newPath);
     }
@@ -20,9 +20,12 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <MainHeader />
-        <div id='main-body'>
+        <div
+          id='main-body'
+          style={{ height: isFullPage ? '100%' : `calc(100% - ${MAIN_HEADER_HEIGHT})` }}
+        >
           <GNB />
-          <div id='main-content-wrap' style={{ width: use100Width ? '100%' : '1000px' }}>
+          <div id={isFullPage ? 'main-page-wrap' : 'main-content-wrap'}>
             <Routes>
               <Route path='/' element={<Navigate to='/login' replace />} />
               <Route path='/home' element={<Home />} />
